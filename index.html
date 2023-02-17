@@ -4,9 +4,40 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
     <title>E-Commerce</title>
 </head>
 <body>
-    
+    <div class="container">
+        <div class="leftMenu">
+            <input type="text" class="search" placeholder="Search items here" value="">
+            <h1>Categories</h1>
+            <div class="cats">
+                <span class="">All</span>
+                <span class="">Casual</span>
+                <span class="">Dress</span>
+                <span class="">Sport</span>
+                <span class="">Luxury</span>
+            </div>
+            <h1>Maximum Price</h1>
+            <div class="price">
+                <input type="range" class="priceRange">
+                <span class="priceValue">$40</span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="products">
+                <div class="product">
+                    <img src="https://cdn.shopify.com/s/files/1/0137/0292/2286/products/quantum-blue_1_360x.png?v=1675340660" alt="">
+                    <span class="name">name</span>
+                    <span class="priceText">$44</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
 </body>
 </html>
