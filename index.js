@@ -1,0 +1,56 @@
+const data=[
+    {
+        id:1,
+        name:"Fire boult Quantum",
+        img:"https://cdn.shopify.com/s/files/1/0137/0292/2286/products/quantum-blue_1_360x.png?v=1675340660",
+        price:3999,
+        cat:"Watch",
+    },
+    {
+        id:2,
+        name:"Fastrack",
+        img:"https://sslimages.shoppersstop.com/sys-master/images/hc9/h13/26908966813726/WFT38072AP01_NoColour.jpg_230Wx334H",
+        price:3695,
+        cat:"Watch",
+    },
+    {
+        id:3,
+        name:"Ajio striped shirt",
+        img:"https://assets.ajio.com/medias/sys_master/root/20221117/2r8w/6375d715aeb269659c97f84a/-473Wx593H-462152986-green-MODEL.jpg",
+        price:899,
+        cat:"Dress",
+    },
+    {
+        id:4,
+        name:"Ajio pink shirt",
+        img:"https://assets.ajio.com/medias/sys_master/root/20230102/R0me/63b30ae3aeb269659c1e4f01/-473Wx593H-462323964-pink-MODEL.jpg",
+        price:610,
+        cat:"Dress",
+    },
+    {
+        id:5,
+        name:"Fossil chronograph black",
+        img:"https://m.media-amazon.com/images/I/61lEGRZwG1L._UX679_.jpg",
+        price:5845,
+        cat:"Watch",
+    },
+
+]
+
+const productsContainer=document.querySelector(".products");
+const searchInput=document.querySelector(".search");
+const categoriesContainer=document.querySelector(".cats");
+const priceRange=document.querySelector(".priceRange");
+const priceValue=document.querySelector(".priceValue");
+
+const displayProduct=(filteredProducts)=>{
+    productsContainer.innerHTML=filteredProducts.map((product)=>
+        `<div class="product">
+        <img src=${product.img} alt="">
+        <span class="name">${product.name}</span>
+        <span class="priceText">${product.price}</span>
+        </div>`
+    ).join("")
+}
+
+displayProduct(data)
