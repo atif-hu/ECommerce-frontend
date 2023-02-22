@@ -4,14 +4,14 @@ const data=[
         name:"Fire boult Quantum",
         img:"https://cdn.shopify.com/s/files/1/0137/0292/2286/products/quantum-blue_1_360x.png?v=1675340660",
         price:3999,
-        cat:"Watch",
+        cat:"Formal Watch",
     },
     {
         id:2,
         name:"Fastrack",
         img:"https://sslimages.shoppersstop.com/sys-master/images/hc9/h13/26908966813726/WFT38072AP01_NoColour.jpg_230Wx334H",
         price:3695,
-        cat:"Watch",
+        cat:"Casual Watch",
     },
     {
         id:3,
@@ -32,28 +32,28 @@ const data=[
         name:"Fossil chronograph black",
         img:"https://m.media-amazon.com/images/I/61lEGRZwG1L._UX679_.jpg",
         price:5845,
-        cat:"Watch",
+        cat:"Casual Watch",
     },
     {
         id:6,
         name:"Fossil Neutra Chronograph Medium Brown Eco Leather Watch",
         img:"https://fossil.scene7.com/is/image/FossilPartners/FS5982_main?$sfcc_fos_large$",
         price:12495,
-        cat:"Watch",
+        cat:"Causal Watch",
     },
     {
         id:7,
         name:"Fossil Blue Three-Hand Date Stainless Steel Watch",
         img:"https://fossil.scene7.com/is/image/FossilPartners/FS5949_main?$sfcc_fos_large$",
         price:11195,
-        cat:"Watch",
+        cat:"Formal Watch",
     },
     {
         id:8,
         name:"Fossil Everett Three-Hand Date Navy Ceramic Watch",
         img:"https://fossil.scene7.com/is/image/FossilPartners/CE5029_main?$sfcc_fos_large$",
         price:11546,
-        cat:"Watch",
+        cat:"Formal Watch",
     },
 
 ]
@@ -63,6 +63,7 @@ const searchInput=document.querySelector(".search");
 const categoriesContainer=document.querySelector(".cats");
 const priceRange=document.querySelector(".priceRange");
 const priceValue=document.querySelector(".priceValue");
+
 
 const displayProduct=(filteredProducts)=>{
     productsContainer.innerHTML=filteredProducts.map((product)=>
@@ -84,4 +85,34 @@ searchInput.addEventListener("keyup",(e)=>{
     }
 })
 
-displayProduct(data)
+const addCategories=(data)=>{
+    const cat=new Set();
+    cat.add("All")
+    data.forEach(element => {
+        cat.add(element.cat)
+    });
+
+    cat.forEach(element => {
+        const tag=document.createElement("span");
+        const val=document.createTextNode(element);
+        tag.className="cat";
+        tag.appendChild(val);
+        categoriesContainer.appendChild(tag);
+    });
+}
+
+
+categoriesContainer.addEventListener("click",(e)=>{
+    const selectedCat=e.target.textContent;
+    if(selectedCat==="All"){
+        displayProduct(data)
+    }    
+    else{
+        displayProduct(data.filter((item)=>item.cat===selectedCat))
+    }
+})
+
+
+addCategories(data);
+
+displayProduct(data);
