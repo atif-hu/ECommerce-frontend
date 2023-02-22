@@ -34,6 +34,27 @@ const data=[
         price:5845,
         cat:"Watch",
     },
+    {
+        id:6,
+        name:"Fossil Neutra Chronograph Medium Brown Eco Leather Watch",
+        img:"https://fossil.scene7.com/is/image/FossilPartners/FS5982_main?$sfcc_fos_large$",
+        price:12495,
+        cat:"Watch",
+    },
+    {
+        id:7,
+        name:"Fossil Blue Three-Hand Date Stainless Steel Watch",
+        img:"https://fossil.scene7.com/is/image/FossilPartners/FS5949_main?$sfcc_fos_large$",
+        price:11195,
+        cat:"Watch",
+    },
+    {
+        id:8,
+        name:"Fossil Everett Three-Hand Date Navy Ceramic Watch",
+        img:"https://fossil.scene7.com/is/image/FossilPartners/CE5029_main?$sfcc_fos_large$",
+        price:11546,
+        cat:"Watch",
+    },
 
 ]
 
@@ -52,5 +73,15 @@ const displayProduct=(filteredProducts)=>{
         </div>`
     ).join("")
 }
+
+searchInput.addEventListener("keyup",(e)=>{
+    const val=e.target.value.toLowerCase();
+    if(val){
+        displayProduct(data.filter((item)=>item.name.toLowerCase().indexOf(val)!==-1));
+    }
+    else{   
+        displayProduct(data);
+    }
+})
 
 displayProduct(data)
