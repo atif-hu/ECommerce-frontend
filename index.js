@@ -70,7 +70,7 @@ const displayProduct=(filteredProducts)=>{
         `<div class="product">
         <img src=${product.img} alt="">
         <span class="name">${product.name}</span>
-        <span class="priceText">${product.price}</span>
+        <span class="priceText">₹${product.price}</span>
         </div>`
     ).join("")
 }
@@ -112,7 +112,18 @@ categoriesContainer.addEventListener("click",(e)=>{
     }
 })
 
+const setPrice=()=>{
+    const priceList=data.map(item=>item.price);
+    let minPrice=Number.MAX_SAFE_INTEGER;
+    let maxPrice=Number.MIN_SAFE_INTEGER;
+
+    priceList.forEach((element)=>{
+        minPrice=Math.min(minPrice,element);
+        maxPrice=Math.max(maxPrice,element);
+    })
+    console.log(priceList,maxPrice);
+}
 
 addCategories(data);
-
 displayProduct(data);
+setPrice();
